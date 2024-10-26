@@ -1,26 +1,105 @@
+/*!
+
+=========================================================
+* BLK Design System PRO React - v1.2.1
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/blk-design-system-pro-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
+// styles
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/css/nucleo-icons.css";
-import "assets/scss/blk-design-system-react.scss";
+import "assets/scss/blk-design-system-pro-react.scss?v1.2.0";
 import "assets/demo/demo.css";
+import "assets/demo/react-demo.css";
 
+// presentation pages
 import Index from "views/Index.js";
+import Presentation from "views/Presentation.js";
+import Sections from "views/Sections.js";
+// example pages
+import AboutUs from "views/examples/AboutUs.js";
+import BlogPost from "views/examples/BlogPost.js";
+import BlogPosts from "views/examples/BlogPosts.js";
+import ContactUs from "views/examples/ContactUs.js";
 import LandingPage from "views/examples/LandingPage.js";
-import RegisterPage from "views/examples/RegisterPage.js";
+import Pricing from "views/examples/Pricing.js";
+import Ecommerce from "views/examples/Ecommerce.js";
+import ProductPage from "views/examples/ProductPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
+import Error404 from "views/examples/Error404.js";
+import Error500 from "views/examples/Error500.js";
+import AccountSettings from "views/examples/AccountSettings.js";
+import LoginPage from "views/examples/LoginPage.js";
+import RegisterPage from "views/examples/RegisterPage.js";
+import ResetPage from "views/examples/ResetPage.js";
+import InvoicePage from "views/examples/InvoicePage.js";
+import CheckoutPage from "views/examples/CheckoutPage.js";
+import ChatPage from "views/examples/ChatPage.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/components" element={<Index />} />
-      <Route path="/landing-page" element={<LandingPage />} />
-      <Route path="/register-page" element={<RegisterPage />} />
-      <Route path="/profile-page" element={<ProfilePage />} />
-      <Route path="*" element={<Navigate to="/components" replace />} />
-    </Routes>
+    <Switch>
+      <Route path="/index" render={(props) => <Index {...props} />} />
+      <Route
+        path="/presentation"
+        render={(props) => <Presentation {...props} />}
+      />
+      <Route path="/sections" render={(props) => <Sections {...props} />} />
+      <Route path="/about-us" render={(props) => <AboutUs {...props} />} />
+      <Route path="/blog-post" render={(props) => <BlogPost {...props} />} />
+      <Route path="/blog-posts" render={(props) => <BlogPosts {...props} />} />
+      <Route path="/contact-us" render={(props) => <ContactUs {...props} />} />
+      <Route
+        path="/landing-page"
+        render={(props) => <LandingPage {...props} />}
+      />
+      <Route path="/pricing" render={(props) => <Pricing {...props} />} />
+      <Route path="/ecommerce" render={(props) => <Ecommerce {...props} />} />
+      <Route
+        path="/product-page"
+        render={(props) => <ProductPage {...props} />}
+      />
+      <Route
+        path="/profile-page"
+        render={(props) => <ProfilePage {...props} />}
+      />
+      <Route path="/404-error" render={(props) => <Error404 {...props} />} />
+      <Route path="/500-error" render={(props) => <Error500 {...props} />} />
+      <Route
+        path="/account-settings"
+        render={(props) => <AccountSettings {...props} />}
+      />
+      <Route path="/login-page" render={(props) => <LoginPage {...props} />} />
+      <Route
+        path="/register-page"
+        render={(props) => <RegisterPage {...props} />}
+      />
+      <Route path="/reset-page" render={(props) => <ResetPage {...props} />} />
+      <Route
+        path="/invoice-page"
+        render={(props) => <InvoicePage {...props} />}
+      />
+      <Route
+        path="/checkout-page"
+        render={(props) => <CheckoutPage {...props} />}
+      />
+      <Route path="/chat-page" render={(props) => <ChatPage {...props} />} />
+      <Redirect from="/" to="/presentation" />
+    </Switch>
   </BrowserRouter>
 );

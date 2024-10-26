@@ -1,12 +1,11 @@
 /*!
 
 =========================================================
-* BLK Design System React - v1.2.2
+* BLK Design System PRO React - v1.2.1
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/main/LICENSE.md)
+* Product Page: https://www.creative-tim.com/product/blk-design-system-pro-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
 
 * Coded by Creative Tim
 
@@ -18,6 +17,7 @@
 import React from "react";
 // react plugin used to create charts
 import { Line } from "react-chartjs-2";
+
 // reactstrap components
 import {
   Button,
@@ -30,27 +30,30 @@ import {
   ListGroup,
   Container,
   Row,
-  Col,
+  Col
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
-import Footer from "components/Footer/Footer.js";
+import ColorNavbar from "components/Navbars/ColorNavbar.js";
+import DemoFooter from "components/Footers/DemoFooter.js";
 
-import bigChartData from "variables/charts.js";
+import { chartExample1 } from "variables/charts.js";
 
 export default function LandingPage() {
+  const wrapper = React.useRef(null);
   React.useEffect(() => {
-    document.body.classList.toggle("landing-page");
-    // Specify how to clean up after this effect:
+    document.documentElement.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+    wrapper.current.scrollTop = 0;
+    document.body.classList.add("landing-page");
     return function cleanup() {
-      document.body.classList.toggle("landing-page");
+      document.body.classList.remove("landing-page");
     };
   }, []);
   return (
     <>
-      <ExamplesNavbar />
-      <div className="wrapper">
+      <ColorNavbar />
+      <div className="wrapper" ref={wrapper}>
         <div className="page-header">
           <img
             alt="..."
@@ -82,7 +85,7 @@ export default function LandingPage() {
             className="shapes circle"
             src={require("assets/img/cercuri.png")}
           />
-          <div className="content-center">
+          <Container>
             <Row className="row-grid justify-content-between align-items-center text-left">
               <Col lg="6" md="6">
                 <h1 className="text-white">
@@ -111,24 +114,24 @@ export default function LandingPage() {
                 <div className="btn-wrapper">
                   <div className="button-container">
                     <Button
-                      className="btn-icon btn-simple btn-round btn-neutral"
-                      color="default"
+                      className="btn-icon btn-simple btn-round mr-1"
+                      color="neutral"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
                       <i className="fab fa-twitter" />
                     </Button>
                     <Button
-                      className="btn-icon btn-simple btn-round btn-neutral"
-                      color="default"
+                      className="btn-icon btn-simple btn-round mr-1"
+                      color="neutral"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
                       <i className="fab fa-dribbble" />
                     </Button>
                     <Button
-                      className="btn-icon btn-simple btn-round btn-neutral"
-                      color="default"
+                      className="btn-icon btn-simple btn-round"
+                      color="neutral"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
@@ -145,7 +148,7 @@ export default function LandingPage() {
                 />
               </Col>
             </Row>
-          </div>
+          </Container>
         </div>
         <section className="section section-lg">
           <section className="section">
@@ -460,8 +463,8 @@ export default function LandingPage() {
               <CardBody>
                 <div className="chart-area">
                   <Line
-                    data={bigChartData.data}
-                    options={bigChartData.options}
+                    data={chartExample1.data}
+                    options={chartExample1.options}
                   />
                 </div>
               </CardBody>
@@ -584,7 +587,7 @@ export default function LandingPage() {
             </Row>
           </Container>
         </section>
-        <Footer />
+        <DemoFooter />
       </div>
     </>
   );

@@ -2,12 +2,11 @@
 /*!
 
 =========================================================
-* BLK Design System React - v1.2.2
+* BLK Design System PRO React - v1.2.1
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/main/LICENSE.md)
+* Product Page: https://www.creative-tim.com/product/blk-design-system-pro-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
 
 * Coded by Creative Tim
 
@@ -16,6 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -28,12 +28,10 @@
     <link
       rel="apple-touch-icon"
       sizes="76x76"
-      href="../public/apple-icon.png"
+      href="../src/assets/img/apple-icon.png"
     />
-    <link rel="icon" type="image/png" href="../public/favicon.ico" />
-    <title>
-      BLK Design System React by Creative Tim - Components Documentation
-    </title>
+    <link rel="icon" type="image/png" href="../src/assets/img/favicon.png" />
+    <title>Components Documentation - Blk• Design System by Creative Tim</title>
     <!--     Fonts and icons     -->
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800"
@@ -47,183 +45,136 @@
     <link href="../src/assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link
-      href="../src/assets/css/blk-design-system-react.min.css?v=1.2.0"
+      href="../src/assets/css/blk-design-system-pro-react.css?v=1.2.0"
       rel="stylesheet"
     />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../src/assets/demo/demo.css" rel="stylesheet" />
-    <style>
-      .offline-doc .page-header {
-        min-height: 100vh;
-        max-height: 999px;
-        padding: 0;
-        color: #ffffff;
-        position: relative;
-      }
-      .offline-doc .page-header .page-header-image {
-        position: absolute;
-        background-size: cover;
-        background-position: center center;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
-      .offline-doc .page-header .content-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 2;
-        -ms-transform: translate(-50%, -50%);
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: #ffffff;
-        padding: 0 15px;
-        width: 100%;
-        max-width: 880px;
-      }
-      .offline-doc .page-header footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-      }
-      .offline-doc .page-header .container {
-        height: 100%;
-        z-index: 1;
-      }
-      .offline-doc .page-header .category,
-      .offline-doc .page-header .description {
-        color: rgba(255, 255, 255, 0.8);
-      }
-      .offline-doc .page-header.page-header-small {
-        min-height: 60vh;
-        max-height: 440px;
-      }
-      .offline-doc .page-header.page-header-mini {
-        min-height: 40vh;
-        max-height: 340px;
-      }
-      .offline-doc .page-header .title {
-        margin-bottom: 15px;
-      }
-      .offline-doc .page-header .title + h4 {
-        margin-top: 10px;
-      }
-      .offline-doc .page-header:after,
-      .offline-doc .page-header:before {
-        position: absolute;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-        left: 0;
-        top: 0;
-        content: "";
-      }
-      .offline-doc .page-header:before {
-        background-color: rgba(0, 0, 0, 0.8);
-      }
-    </style>
+    <link href="../src/assets/demo/react-demo.css" rel="stylesheet" />
   </head>
 
   <body class="offline-doc">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+    <nav
+      class="navbar navbar-expand-lg bg-info fixed-top"
+      color-on-scroll="100"
+    >
       <div class="container">
-        <div class="navbar-wrapper">
-          <div class="navbar-toggle d-inline">
-            <button type="button" class="navbar-toggler">
-              <span class="navbar-toggler-bar bar1"></span>
-              <span class="navbar-toggler-bar bar2"></span>
-              <span class="navbar-toggler-bar bar3"></span>
-            </button>
-          </div>
+        <div class="navbar-translate">
           <a
             class="navbar-brand"
-            href="https://www.creative-tim.com/product/blk-design-system-react?ref=blkdsr-static-docs"
-            >BLK Design System React</a
+            href="https://demos.creative-tim.com/blk-design-system-pro-react/#/index?ref=blkdspr-static-docs"
+            rel="tooltip"
+            title="Designed and Coded by Creative Tim"
+            data-placement="bottom"
+            target="_blank"
           >
+            <span>BLK•</span> Design System
+          </a>
+          <button
+            class="navbar-toggler navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-controls="navigation-index"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+          </button>
         </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navigation"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navigation"
         >
-          <span class="navbar-toggler-bar navbar-kebab"></span>
-          <span class="navbar-toggler-bar navbar-kebab"></span>
-          <span class="navbar-toggler-bar navbar-kebab"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navigation">
-          <ul class="navbar-nav ml-auto">
+          <div class="navbar-collapse-header">
+            <div class="row">
+              <div class="col-6 collapse-brand"><a> BLK• </a></div>
+              <div class="col-6 collapse-close text-right">
+                <button
+                  type="button"
+                  class="navbar-toggler"
+                  data-toggle="collapse"
+                  data-target="#navigation"
+                  aria-controls="navigation-index"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i class="tim-icons icon-simple-remove"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <ul class="navbar-nav">
             <li class="nav-item">
               <a
                 target="_blank"
-                href="https://www.creative-tim.com/product/blk-design-system-pro-react?ref=blkdsr-static-docs"
+                href="https://www.creative-tim.com/product/blk-design-system-pro-react?ref=blkdspr-static-docs"
                 class="nav-link d-none d-lg-block btn btn-primary"
               >
-                <i class="tim-icons icon-spaceship"></i> Upgrade to PRO
+                <i class="tim-icons icon-spaceship"></i> Buy now
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item p-0">
               <a
                 class="nav-link"
-                href="https://github.com/creativetimofficial/blk-design-system-react"
+                rel="tooltip"
+                title="Follow us on Twitter"
+                data-placement="bottom"
+                href="https://twitter.com/CreativeTim"
                 target="_blank"
               >
-                Help with a star
+                <i class="fab fa-twitter"></i>
+                <p class="d-lg-none d-xl-none">Twitter</p>
+              </a>
+            </li>
+            <li class="nav-item p-0">
+              <a
+                class="nav-link"
+                rel="tooltip"
+                title="Like us on Facebook"
+                data-placement="bottom"
+                href="https://www.facebook.com/CreativeTim"
+                target="_blank"
+              >
+                <i class="fab fa-facebook-square"></i>
+                <p class="d-lg-none d-xl-none">Facebook</p>
+              </a>
+            </li>
+            <li class="nav-item p-0">
+              <a
+                class="nav-link"
+                rel="tooltip"
+                title="Follow us on Instagram"
+                data-placement="bottom"
+                href="https://www.instagram.com/CreativeTimOfficial"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+                <p class="d-lg-none d-xl-none">Instagram</p>
               </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div
-      class="modal modal-search fade"
-      id="searchModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="searchModal"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <input
-              type="text"
-              class="form-control"
-              id="inlineFormInputGroup"
-              placeholder="SEARCH"
-            />
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <i class="tim-icons icon-simple-remove"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- End Navbar -->
-    <div class="page-header clear-filter">
+    <div class="page-header header-filter">
       <div
         class="page-header-image"
-        style="background-image: url('../src/assets/img/img_3115.jpg')"
+        style="background-image: url('../src/assets/img/denys.jpg')"
       ></div>
-      <div class="content-center">
+      <div class="content-center text-center">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
-            <h1 class="title">BLK Design System React</h1>
+            <h1 class="title">Blk• Design System</h1>
             <h3 class="description">Documentation v1.2.0</h3>
             <br />
             <a
-              href="https://demos.creative-tim.com/blk-design-system-react/#/documentation/overview?ref=blkdsr-static-docs"
-              class="btn btn-primary btn-round btn-lg"
+              href="https://demos.creative-tim.com/blk-design-system-pro-react/#/documentation/overview?ref=blkdspr-static-docs"
+              class="btn btn-info btn-round btn-lg"
               >View documentation</a
             >
           </div>
@@ -233,14 +184,52 @@
     <footer class="footer">
       <div class="container">
         <div class="row">
+          <div class="col-md-3"><h1 class="title">BLK•</h1></div>
           <div class="col-md-3">
-            <h1 class="title">BLK• React</h1>
+            <ul class="nav">
+              <li class="nav-item">
+                <a
+                  href="https://demos.creative-tim.com/blk-design-system-pro-react/#/index?ref=blkdspr-static-docs"
+                  class="nav-link"
+                  target="_blank"
+                >
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://demos.creative-tim.com/blk-design-system-pro-react/#/landing-page?ref=blkdspr-static-docs"
+                  class="nav-link"
+                  target="_blank"
+                >
+                  Landing
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://demos.creative-tim.com/blk-design-system-pro-react/#/register-page?ref=blkdspr-static-docs"
+                  class="nav-link"
+                  target="_blank"
+                >
+                  Register
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="https://demos.creative-tim.com/blk-design-system-pro-react/#/profile-page?ref=blkdspr-static-docs"
+                  class="nav-link"
+                  target="_blank"
+                >
+                  Profile
+                </a>
+              </li>
+            </ul>
           </div>
           <div class="col-md-3">
             <ul class="nav">
               <li class="nav-item">
                 <a
-                  href="https://creative-tim.com/contact-us?ref=blkdsr-static-docs-footer"
+                  href="https://creative-tim.com/contact-us?ref=blkdspr-static-docs"
                   class="nav-link"
                 >
                   Contact Us
@@ -248,7 +237,7 @@
               </li>
               <li class="nav-item">
                 <a
-                  href="https://creative-tim.com/about-us?ref=blkdsr-static-docs-footer"
+                  href="https://creative-tim.com/about-us?ref=blkdspr-static-docs"
                   class="nav-link"
                 >
                   About Us
@@ -256,7 +245,7 @@
               </li>
               <li class="nav-item">
                 <a
-                  href="https://creative-tim.com/blog?ref=blkdsr-static-docs-footer"
+                  href="https://creative-tim.com/blog?ref=blkdspr-static-docs"
                   class="nav-link"
                 >
                   Blog
@@ -305,8 +294,20 @@
       </div>
     </footer>
     <!--   Core JS Files   -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,12 +1,11 @@
 /*!
 
 =========================================================
-* BLK Design System React - v1.2.2
+* BLK Design System PRO React - v1.2.1
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/main/LICENSE.md)
+* Product Page: https://www.creative-tim.com/product/blk-design-system-pro-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
 
 * Coded by Creative Tim
 
@@ -16,9 +15,8 @@
 
 */
 import React from "react";
+// nodejs library that concatenates classes
 import classnames from "classnames";
-// javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
 // reactstrap components
 import {
   Button,
@@ -40,59 +38,76 @@ import {
   Row,
   Col,
   UncontrolledTooltip,
-  UncontrolledCarousel,
+  Carousel,
+  CarouselItem,
+  CarouselIndicators
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
-import Footer from "components/Footer/Footer.js";
+import ColorNavbar from "components/Navbars/ColorNavbar.js";
+import DemoFooter from "components/Footers/DemoFooter.js";
 
-const carouselItems = [
+const items = [
   {
-    src: require("assets/img/denys.jpg"),
-    altText: "Slide 1",
+    altText: "",
     caption: "Big City Life, United States",
+    src: require("assets/img/denys.jpg")
   },
   {
-    src: require("assets/img/fabien-bazanegue.jpg"),
-    altText: "Slide 2",
+    altText: "",
     caption: "Somewhere Beyond, United States",
+    src: require("assets/img/fabien-bazanegue.jpg")
   },
   {
-    src: require("assets/img/mark-finn.jpg"),
-    altText: "Slide 3",
+    altText: "",
     caption: "Stocks, United States",
-  },
+    src: require("assets/img/mark-finn.jpg")
+  }
 ];
-
-let ps = null;
 
 export default function ProfilePage() {
   const [tabs, setTabs] = React.useState(1);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [animating, setAnimating] = React.useState(false);
+  const wrapper = React.useRef(null);
   React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      document.documentElement.className += " perfect-scrollbar-on";
-      document.documentElement.classList.remove("perfect-scrollbar-off");
-      let tables = document.querySelectorAll(".table-responsive");
-      for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
-      }
-    }
-    document.body.classList.toggle("profile-page");
-    // Specify how to clean up after this effect:
+    document.documentElement.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+    wrapper.current.scrollTop = 0;
+    document.body.classList.add("profile-page");
     return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-        document.documentElement.className += " perfect-scrollbar-off";
-        document.documentElement.classList.remove("perfect-scrollbar-on");
-      }
-      document.body.classList.toggle("profile-page");
+      document.body.classList.remove("profile-page");
     };
   }, []);
+  const onExiting = () => {
+    setAnimating(true);
+  };
+
+  const onExited = () => {
+    setAnimating(false);
+  };
+
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const goToIndex = (newIndex) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
+
   return (
     <>
-      <ExamplesNavbar />
-      <div className="wrapper">
+      <ColorNavbar />
+      <div className="wrapper" ref={wrapper}>
         <div className="page-header">
           <img
             alt="..."
@@ -120,36 +135,36 @@ export default function ProfilePage() {
                     className="btn-icon btn-round"
                     color="twitter"
                     href="https://twitter.com/creativetim"
-                    id="tooltip639225725"
+                    id="tooltip337991226"
                     target="_blank"
                   >
                     <i className="fab fa-twitter" />
                   </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip639225725">
+                  <UncontrolledTooltip delay={0} target="tooltip337991226">
                     Follow us
                   </UncontrolledTooltip>
                   <Button
                     className="btn-icon btn-round"
                     color="facebook"
                     href="https://www.facebook.com/creativetim"
-                    id="tooltip982846143"
+                    id="tooltip304767046"
                     target="_blank"
                   >
                     <i className="fab fa-facebook-square" />
                   </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip982846143">
+                  <UncontrolledTooltip delay={0} target="tooltip304767046">
                     Like us
                   </UncontrolledTooltip>
                   <Button
                     className="btn-icon btn-round"
                     color="dribbble"
                     href="https://dribbble.com/creativetim"
-                    id="tooltip951161185"
+                    id="tooltip615365713"
                     target="_blank"
                   >
                     <i className="fab fa-dribbble" />
                   </Button>
-                  <UncontrolledTooltip delay={0} target="tooltip951161185">
+                  <UncontrolledTooltip delay={0} target="tooltip615365713">
                     Follow us
                   </UncontrolledTooltip>
                 </div>
@@ -172,7 +187,7 @@ export default function ProfilePage() {
                       <NavItem>
                         <NavLink
                           className={classnames({
-                            active: tabs === 1,
+                            active: tabs === 1
                           })}
                           onClick={(e) => {
                             e.preventDefault();
@@ -186,7 +201,7 @@ export default function ProfilePage() {
                       <NavItem>
                         <NavLink
                           className={classnames({
-                            active: tabs === 2,
+                            active: tabs === 2
                           })}
                           onClick={(e) => {
                             e.preventDefault();
@@ -200,7 +215,7 @@ export default function ProfilePage() {
                       <NavItem>
                         <NavLink
                           className={classnames({
-                            active: tabs === 3,
+                            active: tabs === 3
                           })}
                           onClick={(e) => {
                             e.preventDefault();
@@ -270,7 +285,6 @@ export default function ProfilePage() {
                         <Button
                           className="btn-simple btn-icon btn-round float-right"
                           color="primary"
-                          type="submit"
                         >
                           <i className="tim-icons icon-send" />
                         </Button>
@@ -307,7 +321,55 @@ export default function ProfilePage() {
             <Row className="justify-content-between">
               <Col md="6">
                 <Row className="justify-content-between align-items-center">
-                  <UncontrolledCarousel items={carouselItems} />
+                  <Carousel
+                    activeIndex={activeIndex}
+                    next={next}
+                    previous={previous}
+                  >
+                    <CarouselIndicators
+                      items={items}
+                      activeIndex={activeIndex}
+                      onClickHandler={goToIndex}
+                    />
+                    {items.map((prop, key) => {
+                      return (
+                        <CarouselItem
+                          onExiting={onExiting}
+                          onExited={onExited}
+                          key={prop.src}
+                        >
+                          <img src={prop.src} alt="..." className="d-block" />
+                          <div className="carousel-caption d-none d-md-block">
+                            <h5>{prop.caption}</h5>
+                          </div>
+                        </CarouselItem>
+                      );
+                    })}
+                    <a
+                      className="carousel-control-prev"
+                      data-slide="prev"
+                      href="#pablo"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        previous();
+                      }}
+                      role="button"
+                    >
+                      <i className="tim-icons icon-minimal-left" />
+                    </a>
+                    <a
+                      className="carousel-control-next"
+                      data-slide="next"
+                      href="#pablo"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        next();
+                      }}
+                      role="button"
+                    >
+                      <i className="tim-icons icon-minimal-right" />
+                    </a>
+                  </Carousel>
                 </Row>
               </Col>
               <Col md="5">
@@ -330,7 +392,7 @@ export default function ProfilePage() {
                     <i className="tim-icons icon-book-bookmark" /> Bookmark
                   </Button>
                   <Button
-                    className="btn-simple"
+                    className="btn-simple ml-1"
                     color="info"
                     href="#pablo"
                     onClick={(e) => e.preventDefault()}
@@ -392,8 +454,7 @@ export default function ProfilePage() {
                       <Button
                         className="btn-round float-right"
                         color="primary"
-                        data-placement="right"
-                        id="tooltip341148792"
+                        id="tooltip191750994"
                         type="button"
                       >
                         Send text
@@ -401,7 +462,7 @@ export default function ProfilePage() {
                       <UncontrolledTooltip
                         delay={0}
                         placement="right"
-                        target="tooltip341148792"
+                        target="tooltip191750994"
                       >
                         Can't wait for your message
                       </UncontrolledTooltip>
@@ -409,7 +470,7 @@ export default function ProfilePage() {
                   </CardBody>
                 </Card>
               </Col>
-              <Col className="ml-auto" md="4">
+              <Col className="ml-auto" lg="4" md="6">
                 <div className="info info-horizontal">
                   <div className="icon icon-primary">
                     <i className="tim-icons icon-square-pin" />
@@ -440,7 +501,7 @@ export default function ProfilePage() {
             </Row>
           </Container>
         </section>
-        <Footer />
+        <DemoFooter />
       </div>
     </>
   );
